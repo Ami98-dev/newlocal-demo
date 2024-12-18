@@ -4,10 +4,40 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-table2excel@1.1.1/dist/jquery.table2excel.min.js" integrity="sha256-UbQOHbRdBiTxFQd7J+zvg9v9eXjTMepIyA+67ohTgtY=" crossorigin="anonymous"></script>
 </head>
 <body>
-    <div class="main">
-        <h1>New class</h1>
-    </div>
+    <button id="export-btn">Export to Excel</button>
+    <table id="my-table">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Email</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>John Doe</td>
+            <td>25</td>
+            <td>john.doe@example.com</td>
+          </tr>
+          <tr>
+            <td>Jane Smith</td>
+            <td>30</td>
+            <td>jane.smith@example.com</td>
+          </tr>
+        </tbody>
+      </table>
+      <script>
+        jQuery(document).ready(function() {
+  jQuery('#export-btn').click(function() {
+    jQuery('#my-table').table2excel({
+      filename: 'my-table.xlsx'
+    });
+  });
+});
+      </script>
 </body>
 </html>
